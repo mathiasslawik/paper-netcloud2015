@@ -96,7 +96,7 @@
 
 % *** CITATION PACKAGES ***
 %
-%\usepackage{cite}
+\usepackage{cite}
 % cite.sty was written by Donald Arseneau
 % V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
 % \cite{} output to follow that of IEEE. Loading the cite package will
@@ -120,12 +120,12 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \else
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
@@ -208,7 +208,7 @@
 
 % *** ALIGNMENT PACKAGES ***
 %
-%\usepackage{array}
+\usepackage{array}
 % Frank Mittelbach's and David Carlisle's array.sty patches and improves
 % the standard LaTeX2e array and tabular environments to provide better
 % appearance and additional user controls. As the default LaTeX2e table
@@ -255,7 +255,7 @@
 
 % *** FLOAT PACKAGES ***
 %
-%\usepackage{fixltx2e}
+\usepackage{fixltx2e}
 % fixltx2e, the successor to the earlier fix2col.sty, was written by
 % Frank Mittelbach and David Carlisle. This package corrects a few problems
 % in the LaTeX2e kernel, the most notable of which is that in current
@@ -266,7 +266,7 @@
 % http://www.ctan.org/tex-archive/macros/latex/base/
 
 
-%\usepackage{stfloats}
+\usepackage{stfloats}
 % stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
 % the ability to do double column floats at the bottom of the page as well
 % as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
@@ -297,7 +297,7 @@
 
 % *** PDF, URL AND HYPERLINK PACKAGES ***
 %
-%\usepackage{url}
+\usepackage{url}
 % url.sty was written by Donald Arseneau. It provides better support for
 % handling and breaking URLs. url.sty is already installed on most LaTeX
 % systems. The latest version and documentation can be obtained at:
@@ -313,6 +313,24 @@
 % (Unless specifically asked to do so by the journal or conference you plan
 % to submit to, of course. )
 
+\usepackage[utf8]{inputenc}
+
+\usepackage[most]{tcolorbox}
+
+\tcbset{
+    frame code={}
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=yellow!50,
+    colframe=white,
+    width=\dimexpr\columnwidth\relax,
+    enlarge left by=0mm,
+    boxsep=5pt,
+    arc=0pt,outer arc=0pt,
+    }
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -326,28 +344,35 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Bare Demo of IEEEtran.cls for Conferences}
-
+\title{CYCLONE\\Unified Deployment and Management \\ of Federated, Multi-Cloud Applications}
 
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
-\author{\IEEEauthorblockN{Michael Shell}
-\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
-Georgia Institute of Technology\\
-Atlanta, Georgia 30332--0250\\
-Email: http://www.michaelshell.org/contact.html}
+\author{\IEEEauthorblockN{Mathias Slawik\\ and Begüm İlke Zilci}
+\IEEEauthorblockA{Service-centric Networking\\
+Technische Universität Berlin\\
+Berlin, Germany\\
+Email: {mathias.slawik,ilke.zilci}@tu-berlin.de}
 \and
-\IEEEauthorblockN{Homer Simpson}
-\IEEEauthorblockA{Twentieth Century Fox\\
-Springfield, USA\\
-Email: homer@thesimpsons.com}
+\IEEEauthorblockN{Yuri Demchenko}
+\IEEEauthorblockA{System and Network Engineering\\
+University of Amsterdam\\
+Amstardam, The Netherlands\\
+Email: y.demchenko@uva.nl}
 \and
-\IEEEauthorblockN{James Kirk\\ and Montgomery Scott}
-\IEEEauthorblockA{Starfleet Academy\\
-San Francisco, California 96678--2391\\
-Telephone: (800) 555--1212\\
-Fax: (888) 555--1212}}
+\IEEEauthorblockN{José Ignacio Aznar Baranda}
+\IEEEauthorblockA{DANA\\
+i2cat Internet Research Center\\
+Barcelona, Spain\\
+Email: jose.aznar@i2cat.net}
+\and
+\IEEEauthorblockN{Oleg Lodygensky}
+\and
+\IEEEauthorblockN{Charles Loomis}
+\and
+\IEEEauthorblockN{Christophe Blanchet}
+}
 
 % conference papers do not typically use \thanks and this command
 % is locked out in conference mode. If really needed, such as for
@@ -386,7 +411,7 @@ Fax: (888) 555--1212}}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-The abstract goes here.
+The deployment and management of state-of-the-art cloud applications requires the diverse cloud layers to work in concert. While there are ample products and solutions for managing single cloud aspects, e.g, network managers, deployment tools, and application security software, there are no well-integrated suites for managing the whole cloud stack. This paper presents the CYCLONE research and innovation action, which integrates existing solutions to create a unified and holistic cloud management platform. This platform is tailored to specific needs of research and SME organizations. The main contribution of this paper is the derivation of the CYCLONE architecture as well as its demonstration within a use case from the bioinformatics community.
 \end{abstract}
 
 % no keywords
@@ -407,25 +432,169 @@ The abstract goes here.
 
 
 \section{Introduction}
-% no \IEEEPARstart
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8a and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
 
-\hfill mds
- 
-\hfill September 17, 2014
+\begin{tcolorbox}
+@Mathias, Ilke: General Introduction to CYCLONE as well as this paper.
+\end{tcolorbox}
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+\section{Requirements}
+
+\begin{tcolorbox}
+\textbf{The idea is to present the most relevant requirements for the CYCLONE architecture in the relevant areas. The focus should lie on the specific requirements which stem from the federated and multi-cloud nature of our application area. I (Mathias) will enumerate them after this chapter is finished.}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+@Mathias, Ilke: Introduction in the general structure of the project requirements.
+\end{tcolorbox}
+
+\subsection{Cloud Application Management and Security}
+
+\begin{tcolorbox}
+@Mathias, Ilke: Requirements wrt to application and end-to-end security. This includes the federation requirements.
+\end{tcolorbox}
+
+\begin{tcolorbox}
+@Yuri: Requirements wrt trust bootstrapping and dynamic infrastructure security.
+\end{tcolorbox}
+
+\subsection{Deployment}
+
+\begin{tcolorbox}
+@Cal
+\end{tcolorbox}
+
+\subsection{Infrastructure}
+
+\begin{tcolorbox}
+@Oleg
+\end{tcolorbox}
+
+\subsection{Networking}
+
+\begin{tcolorbox}
+@Jose
+\end{tcolorbox}
+
+\subsection{Brokering}
+
+\begin{tcolorbox}
+@Jose
+\end{tcolorbox}
+
+\section{Related Work}
+
+\begin{tcolorbox}
+\textbf{What is the state-of-the-art and where is it lacking?}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+@Mathias, Ilke: General introduction into the related work.
+\end{tcolorbox}
+
+\subsection{Application Management and Security}
+
+\begin{tcolorbox}
+@Mathias, Ilke, Yuri
+\end{tcolorbox}
+
+\subsection{Cloud deployment tools}
+
+\begin{tcolorbox}
+@Cal
+\end{tcolorbox}
+
+\subsection{IaaS plattforms}
+
+\begin{tcolorbox}
+@Oleg
+\end{tcolorbox}
+
+\subsection{Software-defined-Networking}
+
+\begin{tcolorbox}
+@Jose
+\end{tcolorbox}
+
+\subsection{Service Matchmaking and Brokering}
+
+\begin{tcolorbox}
+@Mathias, Ilke
+\end{tcolorbox}
+
+\section{CYCLONE Architecture and Components}
+
+\begin{tcolorbox}
+@Mathias: Description of the CYCLONE target architecture. Includes a comprehensible overview diagram.
+\end{tcolorbox}
 
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
 
+\subsection{OpenNaaS}
+
+\begin{tcolorbox}
+@Jose: Short description
+\end{tcolorbox}
+
+\subsection{Stratuslab}
+
+\begin{tcolorbox}
+@Oleg: Short description
+\end{tcolorbox}
+
+\subsection{Slipstream}
+
+\begin{tcolorbox}
+@Cal: Short description
+\end{tcolorbox}
+
+\subsection{Open Service Compendium}
+
+\begin{tcolorbox}
+@Mathias, Ilke: Short description
+\end{tcolorbox}
+
+\subsection{CYCLONE Federation Provider}
+
+\begin{tcolorbox}
+@Mathias, Ilke: Short description
+\end{tcolorbox}
+
+\subsection{GAAA-TK and DACI}
+
+\begin{tcolorbox}
+@Yuri: Short description
+\end{tcolorbox}
+
+\section{Bioinformatics Use Case}
+
+\begin{tcolorbox}
+@Christophe: Short introduction to the bioinformatics use case.
+\end{tcolorbox}
+
+\begin{tcolorbox}
+@Mathias: Description of the planned prototype.
+\end{tcolorbox}
+
+\section{Analytical Evaluation}
+
+\begin{tcolorbox}
+@Mathias, Ilke: Evaluation of the architecture and its application within the use case in relation to the requirements from the second chapter.
+\end{tcolorbox}
+
+\section{Conclusion}
+\begin{tcolorbox}
+@Mathias, Ilke
+\end{tcolorbox}
+
+% conference papers do not normally have an appendix
+
+
+% use section* for acknowledgment
+\section*{Acknowledgment}
+
+\begin{tcolorbox}
+EU-Acknowledgement
+\end{tcolorbox}
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -521,28 +690,6 @@ Subsubsection text here.
 % footnotes above bottom floats. This can be corrected via the
 % \fnbelowfloat command of the stfloats package.
 
-
-
-
-\section{Conclusion}
-The conclusion goes here.
-
-
-
-
-% conference papers do not normally have an appendix
-
-
-% use section* for acknowledgment
-\section*{Acknowledgment}
-
-
-The authors would like to thank...
-
-
-
-
-
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
 % adjust value as needed - may need to be readjusted if
@@ -558,23 +705,9 @@ The authors would like to thank...
 % http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+% \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-
-\end{thebibliography}
-
-
-
+% \bibliography{IEEEabrv,netcloud2015}
 
 % that's all folks
 \end{document}
